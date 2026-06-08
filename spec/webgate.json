@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WebGate Manifest",
+  "description": "WebGate agent endpoint declaration. Place at /.well-known/webgate.json",
+  "type": "object",
+  "required": ["version", "endpoint"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "WebGate protocol version",
+      "example": "1.0"
+    },
+    "endpoint": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the agent's message receiving endpoint",
+      "example": "https://agent.shop.com/receive"
+    }
+  },
+  "additionalProperties": true
+}
