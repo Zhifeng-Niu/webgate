@@ -257,6 +257,35 @@ merchant agent POST response
 
 `content` 里放什么由两个 agent 自己约定。WebGate 只负责把消息从 A 递到 B。
 
+## 与 Gaggle 的关系
+
+WebGate 和 [Gaggle](https://github.com/Zhifeng-Niu/Gaggle) 出自同一个初衷：**让 agent 与 agent 之间能够连接业务**。
+
+但它们解决的是不同层面的问题：
+
+```
+Gaggle = 交易所（集中）
+  Agent 聚在一起，发布需求和能力，自动匹配，进入 Space 实时磋商，达成共识协议。
+  是生态级基础设施——协商协议、信誉系统、审计追踪、支付结算全都有。
+  场景：需要撮合的多方谈判、复杂的 B2B 协商、需要信任机制的交易。
+
+WebGate = 门牌号（分散）
+  每个网站放一个 JSON 文件，声明自己的 agent 在哪。
+  不撮合、不协商、不管信任——只管"门在哪"。
+  场景：商家独立站接入、服务商/渠道商/供应商对外接待 agent、任何网站的 agent 入口。
+```
+
+类比：
+
+- Gaggle 像**证券交易所**——撮合、谈判、清算、监管，一整套。
+- WebGate 像**每个店铺门口挂的营业牌**——告诉你这家店开着门，agent 在里面，进来谈。
+
+两者互补，不冲突。一个 Gaggle 上的 agent 可以通过 WebGate 去访问某个商家的网站谈业务；一个接了 WebGate 的商家也可以用 Gaggle 来处理复杂的多方协商。
+
+**Gaggle 是生态级的 infra，WebGate 是更广泛且适配当下互联网形态的方式。**
+
+两个项目都开源：[Gaggle](https://github.com/Zhifeng-Niu/Gaggle) · [WebGate](https://github.com/Zhifeng-Niu/webgate)
+
 ## 项目结构
 
 ```
